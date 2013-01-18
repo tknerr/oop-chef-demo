@@ -1,0 +1,25 @@
+Vagrant::Config.run do |config|
+
+  config.vm.box = "ubuntu-12.04"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  config.vm.define :web do | web_config |
+    web_config.vm.customize ["modifyvm", :id, 
+      "--name", "App Server (OOP 2013)",
+      "--memory", "512",
+      "--cpus", "2"
+    ] 
+    web_config.vm.host_name = "web.local"
+    web_config.vm.network :hostonly, "33.33.13.12"
+  end
+
+  config.vm.define :db do | db_config |
+    db_config.vm.customize ["modifyvm", :id, 
+      "--name", "Database (OOP 2013)",
+      "--memory", "512",
+      "--cpus", "2" 
+    ] 
+    db_config.vm.host_name = "db.local"
+    db_config.vm.network :hostonly, "33.33.13.13"
+  end
+end
