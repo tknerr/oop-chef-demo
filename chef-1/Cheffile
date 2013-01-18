@@ -1,0 +1,4 @@
+site "http://community.opscode.com/api/v1"
+
+cookbook "postgresql", "~> 2.1.0"
+cookbook "tomcat", "~> 0.12.0"
