@@ -21,5 +21,21 @@ Vagrant::Config.run do |config|
     ] 
     db_config.vm.host_name = "db.local"
     db_config.vm.network :hostonly, "33.33.13.13"
+
+    db_config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = ["./cookbooks"]
+      chef.run_list = [
+        "recipe[postgresql::server]"
+      ]
+      chef.json = {
+        "postgresql" => {
+          "password" => {
+            "postgres" => "i_love_random_passwords_but_this_will_do"
+          }
+        }
+      }
+      chef.log_level = :info
+    end
   end
+
 end
