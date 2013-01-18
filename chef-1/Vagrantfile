@@ -11,6 +11,20 @@ Vagrant::Config.run do |config|
     ] 
     web_config.vm.host_name = "web.local"
     web_config.vm.network :hostonly, "33.33.13.12"
+    
+    web_config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = ["./cookbooks"]
+      chef.run_list = [
+        "recipe[tomcat]"
+      ]
+      chef.json = {
+        "tomcat" => {
+          "port" => 8080,
+          "ssl_port" => 8443
+        }
+      }
+      chef.log_level = :info
+    end
   end
 
   config.vm.define :db do | db_config |
