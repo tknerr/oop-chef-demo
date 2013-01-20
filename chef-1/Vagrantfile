@@ -19,6 +19,9 @@ Vagrant::Config.run do |config|
         "recipe[tomcat]"
       ]
       chef.json = {
+        "java" => {
+          "jdk_version" => "7"
+        },
         "tomcat" => {
           "port" => 8080,
           "ssl_port" => 8443
