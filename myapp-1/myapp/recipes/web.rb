@@ -7,7 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# wir brauchen tomcat
+# erstmal ein `apt-get update`
+include_recipe "apt"
+
+# dann Tomcat installieren
 include_recipe "tomcat"
 
 # my-app deployen

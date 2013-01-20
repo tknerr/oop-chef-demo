@@ -15,8 +15,7 @@ Vagrant::Config.run do |config|
     web_config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ["./cookbooks"]
       chef.run_list = [
-        "recipe[apt]",
-        "recipe[tomcat]"
+        "recipe[myapp::web]"
       ]
       chef.json = {
         "java" => {
@@ -25,6 +24,11 @@ Vagrant::Config.run do |config|
         "tomcat" => {
           "port" => 8080,
           "ssl_port" => 8443
+        },
+        "myapp" => {
+          "web" => {
+            "db_host" => "33.33.13.13"
+          }
         }
       }
       chef.log_level = :info
@@ -43,7 +47,7 @@ Vagrant::Config.run do |config|
     db_config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ["./cookbooks"]
       chef.run_list = [
-        "recipe[postgresql::server]"
+        "recipe[myapp::db]"
       ]
       chef.json = {
         "postgresql" => {
