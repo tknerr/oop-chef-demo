@@ -21,10 +21,6 @@ Vagrant::Config.run do |config|
         "java" => {
           "jdk_version" => "7"
         },
-        "tomcat" => {
-          "port" => 8080,
-          "ssl_port" => 8443
-        },
         "myapp" => {
           "web" => {
             "db_host" => "33.33.13.13"
