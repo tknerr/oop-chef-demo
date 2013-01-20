@@ -7,6 +7,20 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# PostgreSQL soll auf allen IP Adressen hören...
+node.override['postgresql']['config']['listen_addresses'] = "*"
+
+# ...und Verbindungen aus dem 33.33.13.0/24 Subnetz erlauben
+node.override['postgresql']['pg_hba'] = (
+  node['postgresql']['pg_hba'] << {
+    :type => 'host',
+    :db => 'all',
+    :user => 'all',
+    :addr => "33.33.13.0/24",
+    :method => 'password'
+  }
+)
+
 # wir brauchen PostgreSQL als DB Server
 include_recipe "postgresql::server"
 
