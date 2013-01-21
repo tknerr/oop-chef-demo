@@ -2,14 +2,15 @@
 OOP Chef Demo
 =============
 
-Das Git Repository mit den Beispielen aus unserem OOP Vortrag "Zu Viele Köche Verderben den Brei - Kochen mit Devs und Ops"
+Das Git Repository mit den Beispielen aus unserem OOP Vortrag ["Zu Viele Köche verderben den Brei - Kochen mit Devs und Ops"](http://www.sigs-datacom.de/oop2013/konferenz/sessiondetails.html?tx_mwconferences_pi1%5BshowUid%5D=1037&tx_mwconferences_pi1%5Banchor%5D=%23Di33&tx_mwconferences_pi1%5Bs%5D=0).
 
-Die passenden Folien dazu gibt es auf Slideshare:
-http://bit.ly/z_slideshare
+Die passenden Folien dazu gibt es auf dem [Zühlke Slideshare Account](http://bit.ly/z_slideshare).
 
 Wo finde ich was?
 
- * *vagrant-1:* minimales `Vagrantfile` anhand dem wir `vagrant up`, `vagrant status`, `vagrant ssh`, usw gezeigt haben.
- * *chef-1:* das `Vagrantfile` wurde um Provisionierung mit Chef erweitert - damit installieren wir PostgreSQL bzw. Tomcat auf den Vagrant VMs. In dem `Cheffile` sind die entsprechenden Cookbooks als Abhängigkeiten definiert, die wir per `librarian-chef install` angezogen haben.
- * *myapp-1:* das vollständige Beispiel wie wir eine Java Applikation mit Chef und Vagrant automatisiert deployen. In dem `Cheffile` wird nun auch unser eigenes `myapp` Cookbook referenziert
- * *my-cookbooks/myapp:* ist das Cookbook, das via include der entsprechenden Kochbücher zunächst Tomcat und PostgreSQL installiert. Anschließend wird in dem `db` Rezept die Datenbank und der DB User für unsere Applikation erstellt, und im `web` Rezept die Applikation für die Datenbank konfiguriert und im Tomcat deployed.    
+ * **vagrant-1:** minimales `Vagrantfile` anhand dem wir `vagrant up`, `vagrant status`, `vagrant ssh`, usw gezeigt haben
+ * **chef-1:** das `Vagrantfile` wurde um Provisionierung mit Chef erweitert - damit installieren wir PostgreSQL bzw. Tomcat auf den Vagrant VMs. In dem `Cheffile` sind die entsprechenden Cookbooks als Abhängigkeiten definiert, die wir per `librarian-chef install` angezogen haben.
+ * **myapp-1:** das vollständige Beispiel wie wir eine Java Applikation mit Chef und Vagrant automatisiert deployen. In dem `Cheffile` wird nun auch unser eigenes `myapp` Cookbook referenziert
+ * **my-cookbooks/myapp:** ist das Kochbuch, das via include der entsprechenden Kochbücher zunächst Tomcat und PostgreSQL installiert
+ ** in dem `db` Rezept wird anschließend die Datenbank und der DB User für unsere Applikation erstellt
+ ** im `web` Rezept wird die Applikation für die Datenbank konfiguriert und im Tomcat deployed    
