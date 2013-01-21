@@ -9,7 +9,7 @@ Die passenden Folien dazu gibt es auf dem [Zühlke Slideshare Account](http://bi
 Wo finde ich was?
 
  * **vagrant-1:** minimales `Vagrantfile` anhand dem wir `vagrant up`, `vagrant status`, `vagrant ssh`, usw gezeigt haben
- * **chef-1:** 
+ * **chef-1:** Provisionierung mit Chef und Abhängigkeitenverwaltung
   * das `Vagrantfile` wurde um Provisionierung mit Chef erweitert - damit installieren wir PostgreSQL bzw. Tomcat auf den Vagrant VMs
   * in dem `Cheffile` sind die entsprechenden Cookbooks als Abhängigkeiten definiert, die wir per `librarian-chef install` angezogen haben
  * **myapp-1:** das vollständige Beispiel wie wir eine Java Applikation mit Chef und Vagrant automatisiert deployen
